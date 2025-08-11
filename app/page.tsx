@@ -762,7 +762,7 @@ export default function Portfolio() {
 
               <div className="flex space-x-4">
                 {[
-                  { icon: Github, href: "#" },
+                  { icon: Github, href: "https://github.com/komalafzaal" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/komalafzaal/" },
                   { icon: Mail, href: "mailto:komalafzaal24@gmail.com" },
                 ].map((social, index) => (
