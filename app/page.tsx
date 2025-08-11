@@ -7,9 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import {
-  Github,
-  Linkedin,
-  Mail,
+  Github, Linkedin, Mail,
   Phone,
   ExternalLink,
   Menu,
