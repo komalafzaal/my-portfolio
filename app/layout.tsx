@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Komal\'s Portfolio',
-  description: 'Created with v0',
+  description: 'Mobile App Developer',
   generator: 'v0.dev',
 }
 
