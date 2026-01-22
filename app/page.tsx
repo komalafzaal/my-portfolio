@@ -200,6 +200,20 @@ export default function Portfolio() {
       image: "/natureRangers.png",
       link: "#",
     },
+    {
+      title: "Flutter Expense Tracker App – Budget & Analytics",
+      description: "Build a secure, easy-to-use personal expense tracker app in Flutter: \nTrack your expenses quickly. \nVisualize spending with smart charts & reports.\nSet budgets and stay on track with financial goals.\nKeep data private on your device with optional biometric login.",
+      tech: ["Android App Development","UI/UX Prototyping", "Flutter", "iOS Development ", "FlutterFlow"],
+      image: "/expenseTracker.png",
+      link: "https://www.youtube.com/shorts/_BvgCNVYADU",
+    },
+    {
+      title: "Town – Location-Based Social Networking Mobile App",
+      description: "Town is a location-based social networking mobile app developed using Flutter with Firebase as the backend. The app enables users to discover nearby people, send friend requests, and chat in real time. It supports private one-to-one chat, public group chat, and private group chat. Users can create and manage groups, customize their profiles, and control privacy settings.",
+      tech: ["Flutter", "Firebase Cloud Firestore", "Firebase Authentication", "Android|iOS"],
+      image: "/town.png",
+      link: "#",
+    },
   ]
 
   const experiences = [
