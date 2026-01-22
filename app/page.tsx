@@ -300,8 +300,19 @@ export default function Portfolio() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "skills", "projects", "experience", "contact"].map((section) => (
-                <button
+              {["home", "about", "skills", "projects", "experience", "upwork", "contact"].map((section) => (
+               section === "upwork" ? (
+                <a
+                  key={section}
+                  href="https://www.upwork.com/freelancers/~016983750864fbeaf5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-all duration-200 font-medium relative group text-gray-300"
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ) : <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className="hover:text-blue-400 transition-all duration-200 font-medium relative group text-gray-300"
@@ -322,14 +333,25 @@ export default function Portfolio() {
           </div>
 
           {/* Mobile Navigation */}
-          <div
+          <div  
             className={`md:hidden overflow-hidden transition-all duration-300 ${
               isMenuOpen ? "max-h-96 py-4 border-t border-gray-800" : "max-h-0"
             }`}
           >
             <div className="flex flex-col space-y-4">
-              {["home", "about", "skills", "projects", "experience", "contact"].map((section, index) => (
-                <button
+              {["home", "about", "skills", "projects", "experience", "upwork", "contact"].map((section, index) => (
+                section === "upwork" ? (
+                  <a
+                    key={section}
+                    href="https://www.upwork.com/freelancers/~016983750864fbeaf5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 transition-all duration-200 font-medium relative group text-gray-300"
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                ) :<button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className="text-left hover:text-blue-400 transition-all duration-200 font-medium transform hover:translate-x-2 text-gray-300"
