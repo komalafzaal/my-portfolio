@@ -170,51 +170,86 @@ export default function Portfolio() {
   }, 5000)
 }
 
-  const projects = [
-    {
-      title: "NKENNE: Learn African Language",
-      description:
-        "NKENNE is the first African language learning app with 150K+ users, offering 13 languages like Igbo, Yoruba & Swahili.",
-      tech: ["Android SDK", "Firebase", "API Integration",  "Chatbot",  "Kotlin"],
-      image: "/nkenne.png",
-      link: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne",
-    },
-    {
-      title: "Sleepover Shield App | Secure & User-Friendly Flutter Solution",
-      description: "Built a secure, user-friendly app that helps parents arrange safe, enjoyable sleepovers by sharing detailed profiles and connecting with like-minded families. Our mission is to create a trusted network where kids have fun and parents have peace of mind.",
-      tech: ["Flutter","Firebase", "Socket.io", "API Integration", "In-App Subscription"],
-      image: "/sleepover.png",
-      link: "https://apps.apple.com/us/app/sleepover-shield/id6736615477",
-    },
-    {
-      title: "Efficient NFC-Based Container Tracking Solution for Logistics      ",
-      description:  "Built an Android (Kotlin) NFC-based container tracking app with real-time updates via Firebase Firestore and Cloud Functions, syncing data to Google Sheets. Features include container assignment/return, client selection, and IN/OUT status tracking.",
-      tech: ["NFC" , "Firebase Cloud Firestore" ,"Firebase Realtime Database" , "Google Sheets"  ,"Android App Development"],
-      image: "/nfcReader.png",
-      link: "#",
-    },
-    {
-      title: "Nature Rangers | Flutter App for Outdoor Learning ",
-      description: "Nature Rangers – Cross-platform app enabling safe, engaging nature-based learning for kids. Features real-time chat (Socket.IO), secure sign-in (Firebase Auth), and event management for seamless parent-admin coordination.",
-      tech: ["Flutter","Firebase", "Socket.io", "API Integration", "Firebase"],
-      image: "/natureRangers.png",
-      link: "#",
-    },
-    {
-      title: "Flutter Expense Tracker App – Budget & Analytics",
-      description: "Build a secure, easy-to-use personal expense tracker app in Flutter: \nTrack your expenses quickly. \nVisualize spending with smart charts & reports.\nSet budgets and stay on track with financial goals.\nKeep data private on your device with optional biometric login.",
-      tech: ["Android App Development","UI/UX Prototyping", "Flutter", "iOS Development ", "FlutterFlow"],
-      image: "/expenseTracker.png",
-      link: "https://www.youtube.com/shorts/_BvgCNVYADU",
-    },
-    {
-      title: "Town – Location-Based Social Networking Mobile App",
-      description: "Town is a location-based social networking mobile app developed using Flutter with Firebase as the backend. The app enables users to discover nearby people, send friend requests, and chat in real time. It supports private one-to-one chat, public group chat, and private group chat. Users can create and manage groups, customize their profiles, and control privacy settings.",
-      tech: ["Flutter", "Firebase Cloud Firestore", "Firebase Authentication", "Android|iOS"],
-      image: "/town.png",
-      link: "#",
-    },
-  ]
+const projects = [
+  
+  {
+    title: "NKENNE: Learn African Language",
+    description:
+      "Built a language learning platform supporting multiple African languages with engaging lessons, API integrations, and chatbot assistance, helping over 150K users learn effectively through an interactive and scalable Android application.",
+    tech: ["Android SDK", "Firebase","Firebase Realtime Database", "Firestore", "API Integration", "Chatbot", "Kotlin", "RevenueCat" ,"In-App Subscription"],
+    image: "/nkenne.png",
+    link: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne",
+  },
+  {
+    title: "Sleepover Shield App | Secure & User-Friendly Flutter Solution",
+    description:
+      "Developed a secure Flutter app enabling parents to organize safe sleepovers by sharing profiles, connecting with trusted families, enabling real-time communication, and ensuring privacy with subscription-based features and reliable backend services.",
+    tech: ["Flutter", "Firebase Authentication", "Socket.io", "API Integration", "In-App Subscription", "iOS App Deployement"],
+    image: "/sleepover.png",
+    link: "https://apps.apple.com/us/app/sleepover-shield/id6736615477",
+  },
+  {
+    title: "Efficient NFC-Based Container Tracking Solution for Logistics",
+    description:
+      "Created an Android NFC-based logistics tracking system with real-time Firebase synchronization, Google Sheets integration, and features like container assignment, return tracking, and IN/OUT status management for streamlined operations.",
+    tech: [
+      "NFC",
+      "Firebase Cloud Firestore",
+      "Firebase Realtime Database",
+      "Google Sheets",
+      "Android App Development"
+    ],
+    image: "/nfcReader.png",
+    link: "#",
+  },
+  
+  {
+    title: "Flutter Expense Tracker App – Budget & Analytics",
+    description:
+      "Developed a personal finance tracker in Flutter with expense logging, interactive charts, budget management, and biometric authentication, helping users monitor spending habits and maintain financial discipline with a clean UI.",
+    tech: [
+      "Android App Development",
+      "UI/UX Prototyping",
+      "Flutter",
+      "iOS Development",
+      "FlutterFlow"
+    ],
+    image: "/expenseTracker.png",
+    link: "https://www.youtube.com/shorts/_BvgCNVYADU",
+  },
+  {
+    title: "PowerUp Mobile App (iOS & Android via Capacitor)",
+    description:
+      "Developed cross-platform iOS and Android apps for PowerUp using Capacitor, integrating native features like push notifications, splash screens, offline handling, and store-compliant UI while optimizing performance and ensuring smooth production release.",
+    tech: [
+      "Capacitor",
+      "iOS Development",
+      "Android App Development",
+      "Push Notifications",
+      "App/Play Store Deployment",
+      "Web Wrapper"
+    ],
+    image: "/power_up.png",
+    link: "https://apps.apple.com/us/app/powerup-individual/id6743502030",
+    androidLink: "https://play.google.com/store/apps/details?id=com.powerupglobaluk.powerup&hl=en",
+  },
+  {
+    title: "Town – Location-Based Social Networking Mobile App",
+    description:
+      "Developed a location-based social networking app using Flutter and Firebase, enabling users to discover nearby people, send friend requests, and engage in real-time private and group chats with full profile customization and privacy controls.",
+    tech: ["Flutter", "Firebase Cloud Funtcions", "Firebase Authentication", "Firebase Firestore", "Android|iOS"],
+    image: "/town.png",
+    link: "#",
+  },
+  {
+    title: "Nature Rangers | Flutter App for Outdoor Learning",
+    description:
+      "Built a cross-platform Flutter app promoting outdoor learning for kids, featuring real-time chat, secure authentication, and event management, enabling parents and admins to coordinate activities while ensuring safety and smooth communication.",
+    tech: ["Flutter", "Firebase", "Socket.io", "API Integration", "Firebase"],
+    image: "/natureRangers.png",
+    link: "#",
+  },
+];
 
   const experiences = [
     {
@@ -650,7 +685,7 @@ export default function Portfolio() {
           >
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={index}
