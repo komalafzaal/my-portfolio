@@ -171,7 +171,16 @@ export default function Portfolio() {
 }
 
 const projects = [
-  
+
+  {
+    title: "LOOKEE® – Sleep Oxygen & ECG Monitor App (Project Lead)",
+    description:
+      "Leading development of a wellness-tracking app that pairs with LOOKEE® wearables to monitor oxygen levels, pulse rate, ECG, activity, and sleep. Own production releases and backend, delivering secure multi-user profiles, trend charts, exportable reports, and personalized health insights.",
+    tech: ["Team Lead", "Android SDK", "Kotlin", "iOS Development", "Wearable Device Integration", "Backend", "Data Visualization", "App/Play Store Deployment"],
+    image: "/lookee.png",
+    link: "https://apps.apple.com/us/app/lookee/id6756679054",
+    androidLink: "https://play.google.com/store/apps/details?id=com.lookee.android&hl=en",
+  },
   {
     title: "NKENNE: Learn African Language",
     description:
@@ -723,13 +732,24 @@ const projects = [
                       </Badge>
                     ))}
                   </div>
-                  <Link
-                    href={project.link}
-                    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group"
-                  >
-                    View Project{" "}
-                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                  </Link>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    <Link
+                      href={project.link}
+                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group"
+                    >
+                      {project.androidLink ? "App Store" : "View Project"}{" "}
+                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </Link>
+                    {project.androidLink && (
+                      <Link
+                        href={project.androidLink}
+                        className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group"
+                      >
+                        Google Play{" "}
+                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                      </Link>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
