@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-black text-white font-inter">
+    <div className="min-h-screen overflow-x-clip bg-black text-white font-inter">
       <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
           <Link href="/" className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-200">

@@ -264,7 +264,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-inter">
+    <div className="min-h-screen overflow-x-clip bg-black text-white font-inter">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm border-b border-gray-800 z-50 shadow-lg transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -343,7 +343,7 @@ export default function Portfolio() {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 hover:scale-110 transition-all duration-300 ${
+        className={`fixed bottom-5 right-4 md:bottom-8 md:right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 hover:scale-110 transition-all duration-300 ${
           showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         }`}
       >
@@ -376,7 +376,7 @@ export default function Portfolio() {
             <span className="text-white">Afzaal</span>
           </h1>
           <h2
-            className="text-xl md:text-2xl text-gray-300 mb-5 font-medium animate-fade-in-up"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-5 font-medium animate-fade-in-up"
             data-animate="hero-subtitle"
             style={{ animationDelay: "0.6s" }}
           >
