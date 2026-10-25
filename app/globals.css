@@ -145,3 +145,36 @@
     transform: scaleX(0);
   }
 }
+
+/* Hero app strip: the track holds the app list twice, so sliding by -50% loops seamlessly. */
+@keyframes project-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.project-marquee {
+  animation: project-marquee 40s linear infinite;
+}
+
+.project-marquee:hover,
+.project-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+.project-marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-marquee {
+    animation: none;
+  }
+
+  .project-marquee-mask {
+    overflow-x: auto;
+  }
+}

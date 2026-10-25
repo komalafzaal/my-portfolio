@@ -22,6 +22,10 @@ import {
   GitBranch,
   ArrowUp,
   ArrowRight,
+  Briefcase,
+  Users,
+  Rocket,
+  BadgeCheck,
   Send,
   CheckCircle,
   AlertCircle,
@@ -31,6 +35,8 @@ import Link from "next/link"
 import { initEmailJS, sendEmailJS } from "@/lib/emailjs-config"
 import { projects, FEATURED_COUNT } from "@/lib/projects"
 import { ProjectSlider } from "@/components/project-slider"
+import { ProjectMarquee } from "@/components/project-marquee"
+import { CountUp } from "@/components/count-up"
 
 
 export default function Portfolio() {
@@ -173,10 +179,10 @@ export default function Portfolio() {
 }
 
   const stats = [
-    { value: "3+", label: "Years of Experience" },
-    { value: "100K+", label: "Users Reached" },
-    { value: "10+", label: "Apps Shipped to Production" },
-    { value: "1st Try", label: "App Store & Play Store Approvals" },
+    { value: "3+", label: "Years of experience", icon: Briefcase },
+    { value: "100K+", label: "Users reached", icon: Users },
+    { value: "10+", label: "Apps in production", icon: Rocket },
+    { value: "1st Try", label: "App Store & Play approvals", icon: BadgeCheck },
   ]
 
   const experiences = [
@@ -341,11 +347,11 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="home"
-        className="pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-blue-950 to-black"
+        className="pt-24 pb-10 min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-blue-950 to-black"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="mb-8 animate-fade-in-up" data-animate="hero-image" style={{ animationDelay: "0.2s" }}>
-        <div className="w-48 h-48 mx-auto mb-8 border-4 border-blue-500 shadow-lg hover:scale-105 transition-transform duration-300 rounded-full overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="mb-6 animate-fade-in-up" data-animate="hero-image" style={{ animationDelay: "0.2s" }}>
+        <div className="w-32 h-32 md:w-36 md:h-36 mx-auto border-4 border-blue-500 shadow-lg hover:scale-105 transition-transform duration-300 rounded-full overflow-hidden">
           <Image
             src="/komal_profile_image.png"
             alt="Profile"
@@ -356,7 +362,7 @@ export default function Portfolio() {
         </div>
         </div>
           <h1
-            className="text-4xl md:text-6xl font-bold mb-6 font-poppins animate-fade-in-up"
+            className="text-4xl md:text-6xl font-bold mb-4 font-poppins animate-fade-in-up"
             data-animate="hero-title"
             style={{ animationDelay: "0.4s" }}
           >
@@ -364,14 +370,14 @@ export default function Portfolio() {
             <span className="text-white">Afzaal</span>
           </h1>
           <h2
-            className="text-xl md:text-2xl text-gray-300 mb-8 font-medium animate-fade-in-up"
+            className="text-xl md:text-2xl text-gray-300 mb-5 font-medium animate-fade-in-up"
             data-animate="hero-subtitle"
             style={{ animationDelay: "0.6s" }}
           >
             Mobile App Developer (Android & iOS)
           </h2>
           <p
-            className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+            className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
             data-animate="hero-description"
             style={{ animationDelay: "0.8s" }}
           >
@@ -397,18 +403,28 @@ export default function Portfolio() {
               Get In Touch
             </Button>
           </div>
+          <div className="mt-10 animate-fade-in-up" data-animate="hero-apps" style={{ animationDelay: "1.1s" }}>
+            <ProjectMarquee projects={projects} featuredCount={FEATURED_COUNT} />
+          </div>
           <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 animate-fade-in-up"
+            className="grid grid-cols-2 md:grid-cols-4 max-w-4xl mx-auto mt-10 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl shadow-blue-950/40 animate-fade-in-up"
             data-animate="hero-stats"
-            style={{ animationDelay: "1.2s" }}
+            style={{ animationDelay: "1.3s" }}
           >
-            {stats.map((stat) => (
+            {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="p-4 bg-gray-900/60 border border-blue-500/30 rounded-xl hover:scale-105 transition-transform duration-300"
+                className={`flex flex-col items-center gap-2 px-4 py-5 border-white/10 ${index % 2 === 1 ? "border-l" : ""} ${
+                  index >= 2 ? "border-t md:border-t-0" : ""
+                } ${index > 0 ? "md:border-l" : ""}`}
               >
-                <p className="text-2xl md:text-3xl font-bold text-blue-400 font-poppins">{stat.value}</p>
-                <p className="text-sm text-gray-300 mt-1">{stat.label}</p>
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/15 text-blue-300">
+                  <stat.icon className="h-[18px] w-[18px]" />
+                </div>
+                <p className="text-3xl md:text-4xl font-bold font-poppins bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  <CountUp value={stat.value} />
+                </p>
+                <p className="text-xs uppercase tracking-wider text-gray-400">{stat.label}</p>
               </div>
             ))}
           </div>

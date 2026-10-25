@@ -10,7 +10,10 @@ import type { Project } from "@/lib/projects"
 
 // How long each slide stays before advancing. The progress bar's CSS animation drives
 // autoplay (onAnimationEnd), so pausing the animation pauses the slider too.
-const SLIDE_MS = 6500
+const SLIDE_MS = 4500
+
+// Other components (e.g. the hero app strip) can jump to a slide by dispatching this event with the slide index.
+export const SELECT_PROJECT_EVENT = "project-slider:select"
 
 export function ProjectSlider({ projects }: { projects: Project[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 32 })
@@ -23,10 +26,13 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
   useEffect(() => {
     if (!emblaApi) return
     const onSelect = () => setSelected(emblaApi.selectedScrollSnap())
+    const onPick = (e: Event) => emblaApi.scrollTo((e as CustomEvent<number>).detail)
     onSelect()
     emblaApi.on("select", onSelect)
+    window.addEventListener(SELECT_PROJECT_EVENT, onPick)
     return () => {
       emblaApi.off("select", onSelect)
+      window.removeEventListener(SELECT_PROJECT_EVENT, onPick)
     }
   }, [emblaApi])
 

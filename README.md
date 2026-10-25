@@ -7,10 +7,12 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 
 ## Features
 
-- **Home / Hero** – intro with quick links to projects and contact, plus a stats row (years of experience, users reached, apps shipped, first-try store approvals).
+- **Home / Hero** – intro with quick links to projects and contact, then:
+  - **App strip** – an endlessly scrolling row of app icons with name and one-line highlight, so visitors see the apps without scrolling. Pauses on hover; clicking a featured app scrolls to it in the slider, other apps open the projects page.
+  - **Stats panel** – years of experience, users reached, apps in production and first-try store approvals, with numbers that count up when they come into view.
 - **About** – profile summary and "What I Offer" (mobile apps, web admin panels & backend, store launch).
 - **Skills** – languages, frameworks and tools.
-- **Featured Projects slider** – auto-playing carousel of the top 5 projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
+- **Featured Projects slider** – auto-playing carousel (4.5 s per slide) of the top 5 projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
 - **All Projects page (`/projects`)** – grid of every project with cover, highlight pills, description, tech badges and store links (**App Store** / **Google Play** shown separately when both exist), plus a "Get in touch" call to action. Current projects, in order:
   1. Town – See Who's Around (AI-curated local events) – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
   2. NKENNE – Learn African Languages (100K+ downloads, AI translation) – [App Store](https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473) · [Google Play](https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en)
@@ -104,6 +106,9 @@ Projects are defined in the `projects` array in [`lib/projects.ts`](lib/projects
   link: "https://...",                 // optional – App Store / main link
   androidLink: "https://...",          // optional – adds a Google Play link
   highlights: ["100K+ downloads"],     // optional – green pills above the title
+  shortName: "App Name",               // name shown in the hero app strip
+  tagline: "100K+ downloads",          // one-liner under the name in the app strip
+  icon: "/icons/app-name.png",         // square app icon in public/icons/ (128×128)
 }
 ```
 
@@ -114,10 +119,12 @@ app/
   layout.tsx          # root layout, fonts, metadata
   page.tsx            # single-page portfolio (hero, about, skills, featured slider, experience, contact)
   projects/page.tsx   # /projects – full project listing
-  globals.css         # Tailwind setup + slider progress-bar animation
+  globals.css         # Tailwind setup + slider progress-bar and app-strip animations
 components/
   project-slider.tsx  # auto-playing featured projects carousel (Embla)
   project-links.tsx   # store link buttons and highlight pills shared by slider and listing
+  project-marquee.tsx # scrolling app strip in the hero
+  count-up.tsx        # animated stat numbers
   theme-provider.tsx
   ui/                 # shadcn/ui components
 hooks/                # use-mobile, use-toast
@@ -126,6 +133,7 @@ lib/
   emailjs-config.ts   # EmailJS setup and send helper (reads env vars)
   utils.ts
 public/               # project cover images and other static assets
+  icons/              # 128×128 app icons used by the hero app strip
 android/  ios/        # Capacitor native projects
 capacitor.config.ts
 next.config.mjs       # static export, unoptimized images
