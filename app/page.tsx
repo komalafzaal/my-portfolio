@@ -15,8 +15,6 @@ import {
   Code,
   Database,
   Layers,
-  Zap,
-  Palette,
   Calendar,
   Server,
   GitBranch,
@@ -26,6 +24,7 @@ import {
   Users,
   Rocket,
   BadgeCheck,
+  Sparkles,
   Send,
   CheckCircle,
   AlertCircle,
@@ -185,6 +184,13 @@ export default function Portfolio() {
     { value: "1st Try", label: "App Store & Play approvals", icon: BadgeCheck },
   ]
 
+  const offers = [
+    { title: "Android & iOS apps", text: "Native Kotlin or cross-platform Flutter.", icon: Smartphone, color: "bg-blue-500/15 text-blue-300" },
+    { title: "Backend & admin panels", text: "APIs, Firebase, Supabase and web dashboards.", icon: Server, color: "bg-purple-500/15 text-purple-300" },
+    { title: "AI-powered features", text: "Smart features like AI events and translation.", icon: Sparkles, color: "bg-cyan-500/15 text-cyan-300" },
+    { title: "Launch & support", text: "Store submission, release and post-launch care.", icon: Rocket, color: "bg-green-500/15 text-green-300" },
+  ]
+
   const experiences = [
     {
       title: "Senior Mobile App Developer",
@@ -223,9 +229,9 @@ export default function Portfolio() {
       color: "bg-green-900/30 border-green-500/30 text-green-300",
     },
     {
-      category: "Architecture & Quality",
+      category: "Architecture & State",
       icon: <Layers className="h-6 w-6" />,
-      skills: ["MVVM", "MVP", "Clean Architecture", "Dependency Injection", "Unit Testing"],
+      skills: ["MVVM", "MVP", "Clean Architecture", "Dependency Injection", "Provider", "Riverpod", "Unit Testing"],
       color: "bg-purple-900/30 border-purple-500/30 text-purple-300",
     },
     {
@@ -235,15 +241,15 @@ export default function Portfolio() {
       color: "bg-red-900/30 border-red-500/30 text-red-300",
     },
     {
-      category: "State & Data",
+      category: "Backend & Data",
       icon: <Database className="h-6 w-6" />,
-      skills: ["Provider", "Riverpod", "Room", "SQLite", "Firebase Realtime Database", "Firestore", "Firebase SDK"],
+      skills: ["Supabase", "Firebase SDK", "Firestore", "Firebase Realtime Database", "Firebase Cloud Functions", "Room", "SQLite"],
       color: "bg-orange-900/30 border-orange-500/30 text-orange-300",
     },
     {
       category: "Tools & Delivery",
       icon: <GitBranch className="h-6 w-6" />,
-      skills: ["Git", "GitHub", "GitLab", "Bitbucket", "CI/CD", "Firebase Crashlytics", "Postman", "Figma", "Jira", "Trello", "Agile/Scrum", "App Store & Play Deployment"],
+      skills: ["Agile / Scrum", "Jira", "Trello", "Git", "GitHub", "GitLab", "Bitbucket", "CI/CD", "Firebase Crashlytics", "Postman", "Figma", "App Store & Play Deployment"],
       color: "bg-indigo-900/30 border-indigo-500/30 text-indigo-300",
     },
   ]
@@ -443,7 +449,7 @@ export default function Portfolio() {
           >
             About Me
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div
               className={`transition-all duration-700 delay-200 ${
                 visibleElements.has("about-content") ? "animate-fade-in-left opacity-100" : "opacity-0 -translate-x-10"
@@ -451,58 +457,54 @@ export default function Portfolio() {
               data-animate="about-content"
               id="about-content"
             >
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                I'm Komal, an Android & Flutter developer who builds apps people actually use. Over the past 3+ years
-                I've shipped 10+ apps to production and reached 100K+ users worldwide, from a leading African
-                language-learning platform to a wearable health-monitoring app I currently lead.
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">Hi, I&apos;m Komal</p>
+              <h3 className="mt-3 text-3xl md:text-4xl font-bold text-white font-poppins leading-tight">
+                I build mobile apps people{" "}
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">love to use.</span>
+              </h3>
+              <p className="mt-5 text-lg text-gray-300 leading-relaxed">
+                Android &amp; Flutter developer with 3+ years of shipping production apps to 100K+ users worldwide, from
+                first sprint to store launch.
               </p>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Clients and teams work with me because I own the whole journey: clean architecture, polished UI, the
-                backend and web admin panel behind the app, and a smooth launch. My apps pass App Store and Google Play
-                review on the first try, and I communicate clearly across time zones so you always know where your
-                project stands.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
+              <ul className="mt-6 space-y-3">
                 {[
-                  { icon: Smartphone, text: "Mobile Development", color: "blue" },
-                  { icon: Code, text: "Clean Architecture", color: "green" },
-                  { icon: Palette, text: "UI/UX Design", color: "purple" },
-                  { icon: Zap, text: "Performance Optimization", color: "orange" },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-center space-x-3 p-3 bg-${item.color}-900/30 border border-${item.color}-500/30 rounded-lg hover:scale-105 transition-all duration-300 cursor-pointer`}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <item.icon className={`h-5 w-5 text-${item.color}-400`} />
-                    <span className="font-medium text-gray-200">{item.text}</span>
-                  </div>
+                  "Approved on App Store & Google Play the first time",
+                  "Clear updates across time zones",
+                  "On-time delivery, end to end",
+                ].map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-gray-200">
+                    <CheckCircle className="h-5 w-5 shrink-0 text-green-400" />
+                    {point}
+                  </li>
                 ))}
-              </div>
+              </ul>
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                Let&apos;s work together
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </Button>
             </div>
             <div
-              className={`bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-700 delay-400 ${
+              className={`transition-all duration-700 delay-400 ${
                 visibleElements.has("about-card") ? "animate-fade-in-right opacity-100" : "opacity-0 translate-x-10"
               }`}
               data-animate="about-card"
               id="about-card"
             >
-              <h3 className="text-2xl font-bold text-white mb-6 font-poppins">What I Offer</h3>
-              <div className="space-y-4">
-                {[
-                  "Cross-platform Flutter apps for Android & iOS",
-                  "Native Android development with Kotlin & Java",
-                  "Web admin panels & backend to manage your app",
-                  "REST APIs, Firebase, real-time chat & in-app subscriptions",
-                  "App Store & Play Store launch, approved first time, plus post-launch support",
-                ].map((item, index) => (
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">What I offer</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {offers.map((offer) => (
                   <div
-                    key={index}
-                    className="flex items-start space-x-3 hover:translate-x-2 transition-transform duration-300"
-                    style={{ animationDelay: `${index * 100 + 600}ms` }}
+                    key={offer.title}
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-blue-500/50 hover:-translate-y-1 hover:bg-white/[0.06] transition-all duration-300"
                   >
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 animate-pulse"></div>
-                    <p className="text-gray-300">{item}</p>
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${offer.color}`}>
+                      <offer.icon className="h-5 w-5" />
+                    </div>
+                    <p className="mt-4 font-semibold text-white">{offer.title}</p>
+                    <p className="mt-1 text-sm text-gray-400 leading-relaxed">{offer.text}</p>
                   </div>
                 ))}
               </div>

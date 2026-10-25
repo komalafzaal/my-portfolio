@@ -10,8 +10,8 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 - **Home / Hero** – intro with quick links to projects and contact, then:
   - **App strip** – an endlessly scrolling row of app icons with name and one-line highlight, so visitors see the apps without scrolling. Pauses on hover; clicking an app scrolls to it in the slider.
   - **Stats panel** – years of experience, users reached, apps in production and first-try store approvals, with numbers that count up when they come into view.
-- **About** – profile summary and "What I Offer" (mobile apps, web admin panels & backend, store launch).
-- **Technical Expertise** – skills grouped into Languages, Mobile Development, Architecture & Quality, APIs & Integrations, State & Data, and Tools & Delivery.
+- **About** – short intro with three "why work with me" points and a "Let's work together" button, plus four "What I offer" cards (Android & iOS apps, backend & admin panels, AI-powered features, launch & support).
+- **Technical Expertise** – skills grouped into Languages, Mobile Development, Architecture & State, APIs & Integrations, Backend & Data (incl. Supabase, Firebase), and Tools & Delivery (incl. Agile / Scrum).
 - **Featured Projects slider** – auto-playing carousel (4.5 s per slide) of all projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
 - **All Projects page (`/projects`)** – grid of every project with cover, highlight pills, description, tech badges and store links (**App Store** / **Google Play** shown separately when both exist), plus a "Get in touch" call to action. Current projects, in order:
   1. Town – See Who's Around (AI-curated local events) – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
