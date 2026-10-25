@@ -14,7 +14,7 @@ import {
   Smartphone,
   Code,
   Database,
-  Cloud,
+  Layers,
   Zap,
   Palette,
   Calendar,
@@ -33,7 +33,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { initEmailJS, sendEmailJS } from "@/lib/emailjs-config"
-import { projects, FEATURED_COUNT } from "@/lib/projects"
+import { projects } from "@/lib/projects"
 import { ProjectSlider } from "@/components/project-slider"
 import { ProjectMarquee } from "@/components/project-marquee"
 import { CountUp } from "@/components/count-up"
@@ -211,39 +211,39 @@ export default function Portfolio() {
 
   const technicalSkills = [
     {
-      category: "Programming Languages",
+      category: "Languages",
       icon: <Code className="h-6 w-6" />,
-      skills: ["Kotlin", "Java", "Dart"],
+      skills: ["Kotlin", "Java", "Dart", "Python", "SQL"],
       color: "bg-blue-900/30 border-blue-500/30 text-blue-300",
     },
     {
       category: "Mobile Development",
       icon: <Smartphone className="h-6 w-6" />,
-      skills: ["Flutter", "Android Native", "Cross-Platform Development"],
+      skills: ["Android SDK", "Jetpack Compose", "Flutter", "Capacitor", "Material Design", "Responsive UI"],
       color: "bg-green-900/30 border-green-500/30 text-green-300",
     },
     {
-      category: "Backend & Databases",
-      icon: <Database className="h-6 w-6" />,
-      skills: ["Node.js", "Firebase", "MongoDB", "MySQL", "PostgreSQL", "SQLite"],
+      category: "Architecture & Quality",
+      icon: <Layers className="h-6 w-6" />,
+      skills: ["MVVM", "MVP", "Clean Architecture", "Dependency Injection", "Unit Testing"],
       color: "bg-purple-900/30 border-purple-500/30 text-purple-300",
-    },
-    {
-      category: "Cloud & DevOps",
-      icon: <Cloud className="h-6 w-6" />,
-      skills: ["AWS", "Microsoft Azure", "Google Cloud Platform"],
-      color: "bg-orange-900/30 border-orange-500/30 text-orange-300",
     },
     {
       category: "APIs & Integrations",
       icon: <Server className="h-6 w-6" />,
-      skills: ["REST APIs", "Google Maps API", "Firebase", "Twilio", "OpenAI APIs"],
+      skills: ["REST APIs", "GraphQL", "Retrofit", "Dio", "Socket.io", "AI Integration", "RevenueCat", "Push Notifications", "Deep Linking"],
       color: "bg-red-900/30 border-red-500/30 text-red-300",
     },
     {
-      category: "Tools & Management",
+      category: "State & Data",
+      icon: <Database className="h-6 w-6" />,
+      skills: ["Provider", "Riverpod", "Room", "SQLite", "Firebase Realtime Database", "Firestore", "Firebase SDK"],
+      color: "bg-orange-900/30 border-orange-500/30 text-orange-300",
+    },
+    {
+      category: "Tools & Delivery",
       icon: <GitBranch className="h-6 w-6" />,
-      skills: ["Git", "GitHub", "BitBucket", "Jira", "ClickUp", "Trello"],
+      skills: ["Git", "GitHub", "GitLab", "Bitbucket", "CI/CD", "Firebase Crashlytics", "Postman", "Figma", "Jira", "Trello", "Agile/Scrum", "App Store & Play Deployment"],
       color: "bg-indigo-900/30 border-indigo-500/30 text-indigo-300",
     },
   ]
@@ -404,7 +404,7 @@ export default function Portfolio() {
             </Button>
           </div>
           <div className="mt-10 animate-fade-in-up" data-animate="hero-apps" style={{ animationDelay: "1.1s" }}>
-            <ProjectMarquee projects={projects} featuredCount={FEATURED_COUNT} />
+            <ProjectMarquee projects={projects} />
           </div>
           <div
             className="grid grid-cols-2 md:grid-cols-4 max-w-4xl mx-auto mt-10 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl shadow-blue-950/40 animate-fade-in-up"
@@ -652,11 +652,11 @@ export default function Portfolio() {
               href="/projects"
               className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-gray-700 px-5 py-2.5 text-sm font-medium text-gray-200 hover:border-blue-500 hover:bg-blue-600 hover:text-white transition-colors duration-200 group"
             >
-              View all {projects.length} projects
+              View all projects
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </div>
-          <ProjectSlider projects={projects.slice(0, FEATURED_COUNT)} />
+          <ProjectSlider projects={projects} />
         </div>
       </section>
 

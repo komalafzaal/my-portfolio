@@ -11,7 +11,7 @@ export type Project = {
   highlights?: string[] // short pills, e.g. "AI-curated events", "100K+ downloads"
 }
 
-// Order matters: the first FEATURED_COUNT projects appear in the home page slider.
+// Order matters: projects appear in this order in the home page slider, app strip and /projects page.
 export const projects: Project[] = [
   {
     title: "Town – See Who's Around",
@@ -107,5 +107,3 @@ export const projects: Project[] = [
     image: "/nfcReader.png",
   },
 ]
-
-export const FEATURED_COUNT = 5

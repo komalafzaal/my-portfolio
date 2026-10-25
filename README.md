@@ -8,11 +8,11 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 ## Features
 
 - **Home / Hero** – intro with quick links to projects and contact, then:
-  - **App strip** – an endlessly scrolling row of app icons with name and one-line highlight, so visitors see the apps without scrolling. Pauses on hover; clicking a featured app scrolls to it in the slider, other apps open the projects page.
+  - **App strip** – an endlessly scrolling row of app icons with name and one-line highlight, so visitors see the apps without scrolling. Pauses on hover; clicking an app scrolls to it in the slider.
   - **Stats panel** – years of experience, users reached, apps in production and first-try store approvals, with numbers that count up when they come into view.
 - **About** – profile summary and "What I Offer" (mobile apps, web admin panels & backend, store launch).
-- **Skills** – languages, frameworks and tools.
-- **Featured Projects slider** – auto-playing carousel (4.5 s per slide) of the top 5 projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
+- **Technical Expertise** – skills grouped into Languages, Mobile Development, Architecture & Quality, APIs & Integrations, State & Data, and Tools & Delivery.
+- **Featured Projects slider** – auto-playing carousel (4.5 s per slide) of all projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
 - **All Projects page (`/projects`)** – grid of every project with cover, highlight pills, description, tech badges and store links (**App Store** / **Google Play** shown separately when both exist), plus a "Get in touch" call to action. Current projects, in order:
   1. Town – See Who's Around (AI-curated local events) – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
   2. NKENNE – Learn African Languages (100K+ downloads, AI translation) – [App Store](https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473) · [Google Play](https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en)
@@ -95,7 +95,7 @@ npx cap open ios       # open in Xcode
 
 ## Adding a Project
 
-Projects are defined in the `projects` array in [`lib/projects.ts`](lib/projects.ts), which both the home page slider and the `/projects` page read. Order matters: the first `FEATURED_COUNT` (5) entries appear in the home page slider. Each entry looks like this:
+Projects are defined in the `projects` array in [`lib/projects.ts`](lib/projects.ts), which the home page slider, the hero app strip and the `/projects` page all read. Order matters: projects appear in this order everywhere. Each entry looks like this:
 
 ```ts
 {
@@ -129,7 +129,7 @@ components/
   ui/                 # shadcn/ui components
 hooks/                # use-mobile, use-toast
 lib/
-  projects.ts         # project data and featured count
+  projects.ts         # project data (order = display order)
   emailjs-config.ts   # EmailJS setup and send helper (reads env vars)
   utils.ts
 public/               # project cover images and other static assets
