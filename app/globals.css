@@ -121,3 +121,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Featured projects slider: the bar fills over one slide's duration; its animationend advances the slider. */
+@keyframes project-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.project-progress {
+  transform-origin: left;
+  animation-name: project-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-progress {
+    animation: none;
+    transform: scaleX(0);
+  }
+}

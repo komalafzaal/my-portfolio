@@ -10,15 +10,16 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 - **Home / Hero** – intro with quick links to projects and contact, plus a stats row (years of experience, users reached, apps shipped, first-try store approvals).
 - **About** – profile summary and "What I Offer" (mobile apps, web admin panels & backend, store launch).
 - **Skills** – languages, frameworks and tools.
-- **Featured Projects** – project cards with cover image, optional download-count badge, description, tech badges and store links. Cards that have both iOS and Android builds show separate **App Store** and **Google Play** links. Current projects:
-  - LOOKEE® – Sleep Oxygen & ECG Monitor (Project Lead, 1K+ downloads) – [App Store](https://apps.apple.com/us/app/lookee/id6756679054) · [Google Play](https://play.google.com/store/apps/details?id=com.lookee.android&hl=en)
-  - NKENNE: Learn African Language (100K+ downloads) – [App Store](https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473) · [Google Play](https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en)
-  - Sleepover Shield
-  - NFC-Based Container Tracking (Tote Inventory)
-  - Flutter Expense Tracker
-  - PowerUp (iOS & Android via Capacitor)
-  - Town – See Who's Around – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
-  - Nature Rangers
+- **Featured Projects slider** – auto-playing carousel of the top 5 projects (cover image + details side by side). Includes a progress bar, dots, prev/next arrows and keyboard arrows; pauses on hover/focus and when the tab is hidden, and doesn't autoplay for users who prefer reduced motion. A **View all projects** button opens the projects page.
+- **All Projects page (`/projects`)** – grid of every project with cover, highlight pills, description, tech badges and store links (**App Store** / **Google Play** shown separately when both exist), plus a "Get in touch" call to action. Current projects, in order:
+  1. Town – See Who's Around (AI-curated local events) – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
+  2. NKENNE – Learn African Languages (100K+ downloads, AI translation) – [App Store](https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473) · [Google Play](https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en)
+  3. PowerUp – Personal Performance (AI health analysis) – [App Store](https://apps.apple.com/us/app/powerup-individual/id6743502030) · [Google Play](https://play.google.com/store/apps/details?id=com.powerupglobaluk.powerup&hl=en)
+  4. LOOKEE® – Sleep Oxygen & ECG Monitor (Project Lead, 1K+ downloads) – [App Store](https://apps.apple.com/us/app/lookee/id6756679054) · [Google Play](https://play.google.com/store/apps/details?id=com.lookee.android&hl=en)
+  5. Sleepover Shield
+  6. Nature Rangers – Outdoor Learning
+  7. Expense Tracker – Budget & Analytics
+  8. NFC Container Tracking for Logistics
 - **Experience** – timeline of roles.
 - **Upwork** – nav link to the Upwork profile.
 - **Contact** – contact form that sends email through [EmailJS](https://www.emailjs.com/), plus social links.
@@ -92,17 +93,17 @@ npx cap open ios       # open in Xcode
 
 ## Adding a Project
 
-Projects are defined in the `projects` array in [`app/page.tsx`](app/page.tsx). Each entry looks like this:
+Projects are defined in the `projects` array in [`lib/projects.ts`](lib/projects.ts), which both the home page slider and the `/projects` page read. Order matters: the first `FEATURED_COUNT` (5) entries appear in the home page slider. Each entry looks like this:
 
 ```ts
 {
   title: "App Name",
   description: "Short description of what you built.",
   tech: ["Flutter", "Firebase"],
-  image: "/app-name.png",       // file in public/, 1080×1080 works best
-  link: "https://...",          // App Store / main link ("#" if none)
-  androidLink: "https://...",   // optional – adds a Google Play link
-  downloads: "1K+ downloads",   // optional – green badge above the title
+  image: "/app-name.png",              // file in public/, 1080×1080 works best
+  link: "https://...",                 // optional – App Store / main link
+  androidLink: "https://...",          // optional – adds a Google Play link
+  highlights: ["100K+ downloads"],     // optional – green pills above the title
 }
 ```
 
@@ -111,13 +112,17 @@ Projects are defined in the `projects` array in [`app/page.tsx`](app/page.tsx). 
 ```
 app/
   layout.tsx          # root layout, fonts, metadata
-  page.tsx            # whole single-page portfolio (sections, projects, experience data)
-  globals.css
+  page.tsx            # single-page portfolio (hero, about, skills, featured slider, experience, contact)
+  projects/page.tsx   # /projects – full project listing
+  globals.css         # Tailwind setup + slider progress-bar animation
 components/
+  project-slider.tsx  # auto-playing featured projects carousel (Embla)
+  project-links.tsx   # store link buttons and highlight pills shared by slider and listing
   theme-provider.tsx
   ui/                 # shadcn/ui components
 hooks/                # use-mobile, use-toast
 lib/
+  projects.ts         # project data and featured count
   emailjs-config.ts   # EmailJS setup and send helper (reads env vars)
   utils.ts
 public/               # project cover images and other static assets

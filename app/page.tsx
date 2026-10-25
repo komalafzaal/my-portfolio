@@ -9,7 +9,6 @@ import { Badge } from "@/components/ui/badge"
 import {
   Github, Linkedin, Mail,
   Phone,
-  ExternalLink,
   Menu,
   X,
   Smartphone,
@@ -22,6 +21,7 @@ import {
   Server,
   GitBranch,
   ArrowUp,
+  ArrowRight,
   Send,
   CheckCircle,
   AlertCircle,
@@ -29,6 +29,8 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { initEmailJS, sendEmailJS } from "@/lib/emailjs-config"
+import { projects, FEATURED_COUNT } from "@/lib/projects"
+import { ProjectSlider } from "@/components/project-slider"
 
 
 export default function Portfolio() {
@@ -169,99 +171,6 @@ export default function Portfolio() {
     setFormStatus({ type: "idle", message: "" })
   }, 5000)
 }
-
-const projects = [
-
-  {
-    title: "LOOKEE® – Sleep Oxygen & ECG Monitor App (Project Lead)",
-    description:
-      "Leading development of a wellness-tracking app that pairs with LOOKEE® wearables to monitor oxygen levels, pulse rate, ECG, activity, and sleep. Own production releases and backend, delivering secure multi-user profiles, trend charts, exportable reports, and personalized health insights.",
-    tech: ["Team Lead", "Android SDK", "Kotlin", "iOS Development", "Wearable Device Integration", "Backend", "Data Visualization", "App/Play Store Deployment"],
-    downloads: "1K+ downloads",
-    image: "/lookee.png",
-    link: "https://apps.apple.com/us/app/lookee/id6756679054",
-    androidLink: "https://play.google.com/store/apps/details?id=com.lookee.android&hl=en",
-  },
-  {
-    title: "NKENNE: Learn African Language",
-    description:
-      "Built a language learning platform supporting multiple African languages with engaging lessons, API integrations, and chatbot assistance, helping 100K+ learners study effectively through an interactive and scalable Android application.",
-    tech: ["Android SDK", "Firebase","Firebase Realtime Database", "Firestore", "API Integration", "Chatbot", "Kotlin", "RevenueCat" ,"In-App Subscription"],
-    downloads: "100K+ downloads",
-    image: "/nkenne.png",
-    link: "https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473",
-    androidLink: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en",
-  },
-  {
-    title: "Sleepover Shield App | Secure & User-Friendly Flutter Solution",
-    description:
-      "Developed a secure Flutter app enabling parents to organize safe sleepovers by sharing profiles, connecting with trusted families, enabling real-time communication, and ensuring privacy with subscription-based features and reliable backend services.",
-    tech: ["Flutter", "Firebase Authentication", "Socket.io", "API Integration", "In-App Subscription", "iOS App Deployement"],
-    image: "/sleepover.png",
-    link: "https://apps.apple.com/us/app/sleepover-shield/id6736615477",
-  },
-  {
-    title: "Efficient NFC-Based Container Tracking Solution for Logistics",
-    description:
-      "Created an Android NFC-based logistics tracking system with real-time Firebase synchronization, Google Sheets integration, and features like container assignment, return tracking, and IN/OUT status management for streamlined operations.",
-    tech: [
-      "NFC",
-      "Firebase Cloud Firestore",
-      "Firebase Realtime Database",
-      "Google Sheets",
-      "Android App Development"
-    ],
-    image: "/nfcReader.png",
-    link: "#",
-  },
-  
-  {
-    title: "Flutter Expense Tracker App – Budget & Analytics",
-    description:
-      "Developed a personal finance tracker in Flutter with expense logging, interactive charts, budget management, and biometric authentication, helping users monitor spending habits and maintain financial discipline with a clean UI.",
-    tech: [
-      "Android App Development",
-      "UI/UX Prototyping",
-      "Flutter",
-      "iOS Development",
-      "FlutterFlow"
-    ],
-    image: "/expenseTracker.png",
-    link: "https://www.youtube.com/shorts/_BvgCNVYADU",
-  },
-  {
-    title: "PowerUp Mobile App (iOS & Android via Capacitor)",
-    description:
-      "Developed cross-platform iOS and Android apps for PowerUp using Capacitor, integrating native features like push notifications, splash screens, offline handling, and store-compliant UI while optimizing performance and ensuring smooth production release.",
-    tech: [
-      "Capacitor",
-      "iOS Development",
-      "Android App Development",
-      "Push Notifications",
-      "App/Play Store Deployment",
-      "Web Wrapper"
-    ],
-    image: "/power_up.png",
-    link: "https://apps.apple.com/us/app/powerup-individual/id6743502030",
-    androidLink: "https://play.google.com/store/apps/details?id=com.powerupglobaluk.powerup&hl=en",
-  },
-  {
-    title: "Town – See Who's Around",
-    description:
-      "Built a location-based social app that helps people discover and connect with neighbours nearby. Features a live people map, real-time private and group messaging over WebSockets, AI-powered post generation and AI-curated local events, and verified profiles.",
-    tech: ["Flutter", "WebSockets", "AI Integration", "Firebase Cloud Functions", "Firebase Authentication", "Firebase Firestore", "App Store Deployment"],
-    image: "/town.png",
-    link: "https://apps.apple.com/us/app/town-see-whos-around/id6760225958",
-  },
-  {
-    title: "Nature Rangers | Flutter App for Outdoor Learning",
-    description:
-      "Built a cross-platform Flutter app promoting outdoor learning for kids, featuring real-time chat, secure authentication, and event management, enabling parents and admins to coordinate activities while ensuring safety and smooth communication.",
-    tech: ["Flutter", "Firebase", "Socket.io", "API Integration"],
-    image: "/natureRangers.png",
-    link: "#",
-  },
-];
 
   const stats = [
     { value: "3+", label: "Years of Experience" },
@@ -712,80 +621,26 @@ const projects = [
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className={`text-3xl md:text-4xl font-bold text-center mb-16 text-blue-400 font-poppins transition-all duration-700 ${
+          <div
+            className={`flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 transition-all duration-700 ${
               visibleElements.has("projects-title") ? "animate-fade-in-up opacity-100" : "opacity-0 translate-y-10"
             }`}
             data-animate="projects-title"
             id="projects-title"
           >
-            Featured Projects
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className={`bg-gray-800 border border-gray-600 hover:border-blue-500 hover:shadow-xl hover:scale-105 transition-all duration-500 cursor-pointer ${
-                  visibleElements.has(`project-${index}`)
-                    ? "animate-fade-in-up opacity-100"
-                    : "opacity-0 translate-y-10"
-                }`}
-                data-animate={`project-${index}`}
-                id={`project-${index}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <CardHeader>
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={400}
-                    height={300}
-                    className="rounded-lg mb-4 w-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  {project.downloads && (
-                    <span className="inline-flex w-fit items-center rounded-full bg-green-900/40 border border-green-500/40 px-3 py-1 text-xs font-semibold text-green-300">
-                      {project.downloads}
-                    </span>
-                  )}
-                  <CardTitle className="text-blue-400 font-poppins hover:text-blue-300 transition-colors duration-200">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-gray-300 leading-relaxed">{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="secondary"
-                        className="bg-blue-900 text-blue-100 font-medium hover:scale-110 transition-transform duration-200"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
-                    <Link
-                      href={project.link}
-                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group"
-                    >
-                      {project.androidLink ? "App Store" : "View Project"}{" "}
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                    </Link>
-                    {project.androidLink && (
-                      <Link
-                        href={project.androidLink}
-                        className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group"
-                      >
-                        Google Play{" "}
-                        <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                      </Link>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-blue-400 font-poppins">Featured Projects</h2>
+              <p className="mt-3 text-gray-400 text-lg">Production apps used by 100K+ people, from AI-powered discovery to wearable health.</p>
+            </div>
+            <Link
+              href="/projects"
+              className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-gray-700 px-5 py-2.5 text-sm font-medium text-gray-200 hover:border-blue-500 hover:bg-blue-600 hover:text-white transition-colors duration-200 group"
+            >
+              View all {projects.length} projects
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
           </div>
+          <ProjectSlider projects={projects.slice(0, FEATURED_COUNT)} />
         </div>
       </section>
 
