@@ -257,7 +257,7 @@ const projects = [
     title: "Nature Rangers | Flutter App for Outdoor Learning",
     description:
       "Built a cross-platform Flutter app promoting outdoor learning for kids, featuring real-time chat, secure authentication, and event management, enabling parents and admins to coordinate activities while ensuring safety and smooth communication.",
-    tech: ["Flutter", "Firebase", "Socket.io", "API Integration", "Firebase"],
+    tech: ["Flutter", "Firebase", "Socket.io", "API Integration"],
     image: "/natureRangers.png",
     link: "#",
   },
