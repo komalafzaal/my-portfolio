@@ -12,7 +12,7 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 - **Skills** – languages, frameworks and tools.
 - **Featured Projects** – project cards with cover image, optional download-count badge, description, tech badges and store links. Cards that have both iOS and Android builds show separate **App Store** and **Google Play** links. Current projects:
   - LOOKEE® – Sleep Oxygen & ECG Monitor (Project Lead, 1K+ downloads) – [App Store](https://apps.apple.com/us/app/lookee/id6756679054) · [Google Play](https://play.google.com/store/apps/details?id=com.lookee.android&hl=en)
-  - NKENNE: Learn African Language (100K+ downloads)
+  - NKENNE: Learn African Language (100K+ downloads) – [App Store](https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473) · [Google Play](https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en)
   - Sleepover Shield
   - NFC-Based Container Tracking (Tote Inventory)
   - Flutter Expense Tracker

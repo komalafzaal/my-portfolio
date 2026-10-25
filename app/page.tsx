@@ -189,7 +189,8 @@ const projects = [
     tech: ["Android SDK", "Firebase","Firebase Realtime Database", "Firestore", "API Integration", "Chatbot", "Kotlin", "RevenueCat" ,"In-App Subscription"],
     downloads: "100K+ downloads",
     image: "/nkenne.png",
-    link: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne",
+    link: "https://apps.apple.com/us/app/nkenne-learn-african-language/id1587537473",
+    androidLink: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne&hl=en",
   },
   {
     title: "Sleepover Shield App | Secure & User-Friendly Flutter Solution",
