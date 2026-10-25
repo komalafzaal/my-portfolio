@@ -7,17 +7,17 @@ Personal portfolio of **Komal Afzaal**, Android & Flutter Developer. Built with 
 
 ## Features
 
-- **Home / Hero** – intro with quick links to projects and contact.
-- **About** – profile summary.
+- **Home / Hero** – intro with quick links to projects and contact, plus a stats row (years of experience, users reached, apps shipped, first-try store approvals).
+- **About** – profile summary and "What I Offer" (mobile apps, web admin panels & backend, store launch).
 - **Skills** – languages, frameworks and tools.
-- **Featured Projects** – project cards with cover image, description, tech badges and store links. Cards that have both iOS and Android builds show separate **App Store** and **Google Play** links. Current projects:
-  - LOOKEE® – Sleep Oxygen & ECG Monitor (Project Lead) – [App Store](https://apps.apple.com/us/app/lookee/id6756679054) · [Google Play](https://play.google.com/store/apps/details?id=com.lookee.android&hl=en)
-  - NKENNE: Learn African Language
+- **Featured Projects** – project cards with cover image, optional download-count badge, description, tech badges and store links. Cards that have both iOS and Android builds show separate **App Store** and **Google Play** links. Current projects:
+  - LOOKEE® – Sleep Oxygen & ECG Monitor (Project Lead, 1K+ downloads) – [App Store](https://apps.apple.com/us/app/lookee/id6756679054) · [Google Play](https://play.google.com/store/apps/details?id=com.lookee.android&hl=en)
+  - NKENNE: Learn African Language (100K+ downloads)
   - Sleepover Shield
   - NFC-Based Container Tracking (Tote Inventory)
   - Flutter Expense Tracker
   - PowerUp (iOS & Android via Capacitor)
-  - Town – Location-Based Social Networking
+  - Town – See Who's Around – [App Store](https://apps.apple.com/us/app/town-see-whos-around/id6760225958)
   - Nature Rangers
 - **Experience** – timeline of roles.
 - **Upwork** – nav link to the Upwork profile.
@@ -102,6 +102,7 @@ Projects are defined in the `projects` array in [`app/page.tsx`](app/page.tsx). 
   image: "/app-name.png",       // file in public/, 1080×1080 works best
   link: "https://...",          // App Store / main link ("#" if none)
   androidLink: "https://...",   // optional – adds a Google Play link
+  downloads: "1K+ downloads",   // optional – green badge above the title
 }
 ```
 

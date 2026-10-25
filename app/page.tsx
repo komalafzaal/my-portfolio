@@ -177,6 +177,7 @@ const projects = [
     description:
       "Leading development of a wellness-tracking app that pairs with LOOKEE® wearables to monitor oxygen levels, pulse rate, ECG, activity, and sleep. Own production releases and backend, delivering secure multi-user profiles, trend charts, exportable reports, and personalized health insights.",
     tech: ["Team Lead", "Android SDK", "Kotlin", "iOS Development", "Wearable Device Integration", "Backend", "Data Visualization", "App/Play Store Deployment"],
+    downloads: "1K+ downloads",
     image: "/lookee.png",
     link: "https://apps.apple.com/us/app/lookee/id6756679054",
     androidLink: "https://play.google.com/store/apps/details?id=com.lookee.android&hl=en",
@@ -184,8 +185,9 @@ const projects = [
   {
     title: "NKENNE: Learn African Language",
     description:
-      "Built a language learning platform supporting multiple African languages with engaging lessons, API integrations, and chatbot assistance, helping over 150K users learn effectively through an interactive and scalable Android application.",
+      "Built a language learning platform supporting multiple African languages with engaging lessons, API integrations, and chatbot assistance, helping 100K+ learners study effectively through an interactive and scalable Android application.",
     tech: ["Android SDK", "Firebase","Firebase Realtime Database", "Firestore", "API Integration", "Chatbot", "Kotlin", "RevenueCat" ,"In-App Subscription"],
+    downloads: "100K+ downloads",
     image: "/nkenne.png",
     link: "https://play.google.com/store/apps/details?id=com.triaxo.nkenne",
   },
@@ -243,12 +245,12 @@ const projects = [
     androidLink: "https://play.google.com/store/apps/details?id=com.powerupglobaluk.powerup&hl=en",
   },
   {
-    title: "Town – Location-Based Social Networking Mobile App",
+    title: "Town – See Who's Around",
     description:
-      "Developed a location-based social networking app using Flutter and Firebase, enabling users to discover nearby people, send friend requests, and engage in real-time private and group chats with full profile customization and privacy controls.",
-    tech: ["Flutter", "Firebase Cloud Funtcions", "Firebase Authentication", "Firebase Firestore", "Android|iOS"],
+      "Built a location-based social app that helps people discover and connect with neighbours nearby. Features a live people map, real-time private and group messaging over WebSockets, AI-powered post generation and AI-curated local events, and verified profiles.",
+    tech: ["Flutter", "WebSockets", "AI Integration", "Firebase Cloud Functions", "Firebase Authentication", "Firebase Firestore", "App Store Deployment"],
     image: "/town.png",
-    link: "#",
+    link: "https://apps.apple.com/us/app/town-see-whos-around/id6760225958",
   },
   {
     title: "Nature Rangers | Flutter App for Outdoor Learning",
@@ -259,6 +261,13 @@ const projects = [
     link: "#",
   },
 ];
+
+  const stats = [
+    { value: "3+", label: "Years of Experience" },
+    { value: "100K+", label: "Users Reached" },
+    { value: "10+", label: "Apps Shipped to Production" },
+    { value: "1st Try", label: "App Store & Play Store Approvals" },
+  ]
 
   const experiences = [
     {
@@ -456,8 +465,8 @@ const projects = [
             data-animate="hero-description"
             style={{ animationDelay: "0.8s" }}
           >
-            Expert Flutter & Kotlin developer specializing in cross-platform mobile solutions with proven track record
-            of timely, high-quality deliveries.
+            I turn ideas into fast, reliable Android & iOS apps for startups and businesses worldwide, from the first
+            sprint to a successful App Store and Google Play launch.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
@@ -477,6 +486,21 @@ const projects = [
             >
               Get In Touch
             </Button>
+          </div>
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 animate-fade-in-up"
+            data-animate="hero-stats"
+            style={{ animationDelay: "1.2s" }}
+          >
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="p-4 bg-gray-900/60 border border-blue-500/30 rounded-xl hover:scale-105 transition-transform duration-300"
+              >
+                <p className="text-2xl md:text-3xl font-bold text-blue-400 font-poppins">{stat.value}</p>
+                <p className="text-sm text-gray-300 mt-1">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -502,14 +526,15 @@ const projects = [
               id="about-content"
             >
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                I'm a passionate mobile app developer specializing in Flutter and Android native development. With
-                expertise in creating scalable, cost-effective apps for both Android and iOS platforms using modern
-                technologies.
+                I'm Komal, an Android & Flutter developer who builds apps people actually use. Over the past 3+ years
+                I've shipped 10+ apps to production and reached 100K+ users worldwide, from a leading African
+                language-learning platform to a wearable health-monitoring app I currently lead.
               </p>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                My focus is on delivering high-performance, user-friendly applications with clean UI/UX design, seamless
-                backend connectivity, and optimized performance. I also have experience in Python development and video
-                editing for mobile app promotions.
+                Clients and teams work with me because I own the whole journey: clean architecture, polished UI, the
+                backend and web admin panel behind the app, and a smooth launch. My apps pass App Store and Google Play
+                review on the first try, and I communicate clearly across time zones so you always know where your
+                project stands.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -539,10 +564,11 @@ const projects = [
               <h3 className="text-2xl font-bold text-white mb-6 font-poppins">What I Offer</h3>
               <div className="space-y-4">
                 {[
-                  "Cross-platform Flutter development for Android & iOS",
+                  "Cross-platform Flutter apps for Android & iOS",
                   "Native Android development with Kotlin & Java",
-                  "REST API & Firebase integration",
-                  "App deployment & post-launch support",
+                  "Web admin panels & backend to manage your app",
+                  "REST APIs, Firebase, real-time chat & in-app subscriptions",
+                  "App Store & Play Store launch, approved first time, plus post-launch support",
                 ].map((item, index) => (
                   <div
                     key={index}
@@ -715,6 +741,11 @@ const projects = [
                     height={300}
                     className="rounded-lg mb-4 w-full object-cover hover:scale-105 transition-transform duration-300"
                   />
+                  {project.downloads && (
+                    <span className="inline-flex w-fit items-center rounded-full bg-green-900/40 border border-green-500/40 px-3 py-1 text-xs font-semibold text-green-300">
+                      {project.downloads}
+                    </span>
+                  )}
                   <CardTitle className="text-blue-400 font-poppins hover:text-blue-300 transition-colors duration-200">
                     {project.title}
                   </CardTitle>
